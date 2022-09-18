@@ -1,0 +1,21 @@
+#:import os os
+#:import StartScreen views.start_screen.start_screen.StartScreen
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+
+<StartScreen>
+    MDBackdrop:
+        id: backdrop
+        title: "CCHD Exam Program" + os.environ["VERSION"]
+        header_text: "Main test functions:"
+
+    MDRaisedButton:
+        size_hint: None, None
+        size: 3 * dp(48), dp(48)
+        text: "Open CCHD Exam"
+        opposite_colors: True
+        pos_hint: {"center_x": .5, "center_y": .5}
+        on_release: root.parent.current = "cchd_progress"
+        
+
+

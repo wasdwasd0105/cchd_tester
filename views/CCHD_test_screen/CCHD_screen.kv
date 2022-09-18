@@ -1,0 +1,56 @@
+#:import CCHDProgress views.CCHD_test_screen.CCHD_screen.CCHDProgress
+#:import os os
+
+<CCHDProgress>
+
+    on_enter:
+        spinner.active = True
+        self.start_test()
+
+
+    MDBoxLayout:
+        orientation: "vertical"
+        adaptive_height: True
+        pos_hint: {"top": 1}
+        spacing: "30dp"
+        id: main_layout
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            spacing: "20dp"
+
+            MDToolbar:
+                title: "CCHD Exam Program" + os.environ["VERSION"]
+                pos_hint: {"center_x": .5, "center_y": .75}
+                background_palette: "Teal"
+                background_hue: "500"
+
+            MDToolbar:
+                title: "CCHD ML Detection Program"
+                md_bg_color: app.theme_cls.bg_light
+                specific_text_color: app.theme_cls.text_color
+
+            MDLabel:
+                id: cchd_status
+                halign: "center"
+                text: "Contacting Detection Prog..."
+
+            MDProgressBar:
+                id: progress_determinate
+                value: 10
+
+
+        MDSpinner:
+            padding: "10dp"
+            id: spinner
+            size_hint: None, None
+            size: "46dp", "46dp"
+            pos_hint: {"center_x": .5}
+
+        MDRaisedButton:
+            id: backhome
+            pos_hint: {"center_x": .5}
+            on_release: self.parent.parent.go_back()
+            
+            

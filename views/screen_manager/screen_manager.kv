@@ -1,0 +1,11 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import StartScreen views.start_screen.start_screen.StartScreen
+
+ScreenManager:
+    transition: FadeTransition()
+
+    StartScreen:
+        name: "start_screen"
+
+    CCHDProgress:
+        name: "cchd_progress"
